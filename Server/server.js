@@ -14,13 +14,13 @@ app.use(express.static(__dirname + '/public'));
 // app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(methodOverride('X-HTTP-Method-Override'));
 //
-// app.get('/', function(req, res){
-//   if (err) {
-//     return console.error(err)
-//   }
-//   console.log('success')
-//   res.send(res.body)
-// })
+app.get('/', function(req, res){
+  if (err) {
+    return console.error(err)
+  }
+  console.log('success')
+  res.send(res.body)
+});
 
 mongoose.connect(db.url)
 mongoose.connection.on('connected', function(err){
