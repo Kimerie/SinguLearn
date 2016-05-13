@@ -4,8 +4,8 @@
   "description": "Individualized tools to enable student success",
   "main":"server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "test": "nodemon server.js"
+    "start": "nodemon Server/server.js",
+    "test": "nodemon Server/server.js"
   },
   "repository": {
     "type": "git",
