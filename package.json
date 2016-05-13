@@ -2,6 +2,8 @@
   "name": "singulearn",
   "version": "1.0.0",
   "description": "Individualized tools to enable student success",
+  "main":"server.js",
+  "start": "node server.js",
   "scripts": {
     "test": "nodemon server.js"
   },
