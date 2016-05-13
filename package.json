@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Individualized tools to enable student success",
   "main":"server.js",
-  "start": "node server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "nodemon server.js"
   },
   "repository": {
