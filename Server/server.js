@@ -15,10 +15,7 @@ app.use(express.static(__dirname + '/public'));
 // app.use(methodOverride('X-HTTP-Method-Override'));
 //
 app.get('/', function(req, res){
-  if (err) {
-    return console.error(err)
-  }
-  console.log('success')
+  console.log('success', res.body)
   res.send(res.body)
 });
 
