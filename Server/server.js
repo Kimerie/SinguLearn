@@ -6,8 +6,8 @@ var methodOverride  = require('method-override')
 var mongoose        = require('mongoose')
 var db              = require('../Database/db.js')
 
-
-
+var mongodbUri = "mongodb://heroku_thj53vw9:ur6rouhri9ek8di8badlfg2rli@ds023042.mlab.com:23042/heroku_thj
+53vw9"
 var port = process.env.PORT || 8000;
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
@@ -19,16 +19,18 @@ app.get('/', function(req, res){
   res.send(res.body)
 });
 
-mongoose.connect(db.url)
-mongoose.connection.on('connected', function(err){
-  console.log('Default connection open to:' + db.url)
+
+mongoose.connect(mongodbUri)
+var db = mongoose.connection
+db.on('connected', function(err){
+  console.log('Default connection open to:' + mongodbUri)
 });
 
-mongoose.connection.on('error', function(err){
+db.on('error', function(err){
   console.log('connection error:' + err)
 });
 
-// startup our app at http://localhost:8000
+// startup our app at heroku port
 app.listen(port);
 
 // shoutout to the user
