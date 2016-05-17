@@ -29,7 +29,7 @@ mongoose.connection.on('error', function(err){
   console.log('connection error:' + err)
 });
 
-// startup our app at heroku port
+// startup our app at heroku ports
 app.listen(port);
 
 // shoutout to the user
