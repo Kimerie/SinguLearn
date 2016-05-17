@@ -4,7 +4,7 @@ var app             = express();
 var bodyParser      = require('body-parser');
 var methodOverride  = require('method-override')
 var mongoose        = require('mongoose')
-var db              = require('../Database/db.js')
+var db              = require('./Database/db.js')
 
 var port = process.env.PORT || 8000;
 app.use(bodyParser.json());
