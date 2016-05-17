@@ -17,9 +17,11 @@ app.get('/', function(req, res){
   res.send(res.body)
 });
 
+var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+                replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };
 
-mongoose.connect(db.uri)
-mongoose.connection.on('connected', function(err){
+mongoose.connect(db.uri, options)
+mongoose.connection.once('connected', function(err){
   console.log('Default connection open to:' + db.uri)
 });
 
