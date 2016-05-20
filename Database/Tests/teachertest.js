@@ -8,7 +8,7 @@ var Teacher             = require('../models/teacherModel.js');
 var TeacherController   = require('../controllers/teachercontroller');
 
 
-var dbURI = 'mongodb://localhost/singuLearn'
+var dbURI = 'mongodb://localhost/singuLearnTest'
 
 var clearDB = function (done) {
   mongoose.connection.collections['teachers'].remove(done);
@@ -31,11 +31,10 @@ describe('Teacher Controller', function () {
 
   // Connect to database before any tests
   before(function (done) {
-    console.log("*********************************", dbURI)
-    if (mongoose.connection.db) {
+    if (mongoose.connection.db){
       return done();
     }
-    mongoose.connect(dbURI, done);
+    mongoose.connect(dbURI, done)
   });
 
   beforeEach(function(done){

@@ -25,7 +25,7 @@ exports.saveNewTeacher = function(userInput, callback){
 };
 
 exports.updateTeacherRecord = function (firstName, lastname, userInput, callback) {
-  var query = { 'firstName': firstName, 'lastName': lastName };
+  var query = {'firstName': firstName, 'lastName': lastName };
   Teacher.findOneAndUpdate(query, userInput, function (err, teacher) {
     if (err) {
       console.log(err);

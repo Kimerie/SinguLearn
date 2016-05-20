@@ -3,7 +3,8 @@ var Student = require('../models/studentModel.js');
 
 // Save a new student record to the database
 exports.saveNewStudent = function(userInput, callback){
-  var newStudent = new Student;
+  var newStudent = {};
+  var saveStudent = [];
   newStudent.firstName          = userInput.firstName;
   newStudent.lastName           = userInput.lastName;
   newStudent.userName           = userInput.firstName + userInput.lastName;
@@ -11,30 +12,56 @@ exports.saveNewStudent = function(userInput, callback){
   newStudent.performance        = null;
   newStudent.completedLessons   = [];
   newStudent.currentPlaylist    = [];
-  newStudent.parentOrCaregiver.mother           = userInput.mother;
-  newStudent.parentOrCaregiver.motherPhone      = userInput.motherPhone;
-  newStudent.parentOrCaregiver.father           = userInput.father;
-  newStudent.parentOrCaregiver.fatherPhone      = userInput.fatherPhone;
-  newStudent.parentOrCaregiver.caregiver        = userInput.caregiver;
-  newStudent.parentOrCaregiver.caregiverPhone   = userInput.caregiverPhone;
+  newStudent.parentOrCaregiver  = {"mother": userInput.mother};
+  newStudent.parentOrCaregiver  = { "motherPhone" : userInput.motherPhone};
+  newStudent.parentOrCaregiver  = {"father": userInput.father};
+  newStudent.parentOrCaregiver  = {"fatherPhone" : userInput.fatherPhone};
+  newStudent.parentOrCaregiver  = {"caregiver" : userInput.caregiver};
+  newStudent.parentOrCaregiver  = {"caregiverPhone" : userInput.caregiverPhone};
 
-  newStudent.save(function(err, student) {
-    console.log("adding this student: ", student.userName)
-    if(err) {
-      console.log("Error. Entry not saved")
+  saveStudent.push(newStudent)
+  console.log("*************************************************", saveStudent)
+  Student.create(saveStudent, function(err, student){
+    if(err){
       return err
-    } else {
-      console.log("Post saved!", student)
     }
-    callback(null, student);
+
+    console.log("Success! Student saved: ", student)
+    callback(null, student)
   });
+
+
+
+
+
+  // newStudent.pre('save', function(next) {
+  //     if (this.isNew) {
+  //         // Hooray!
+  //         next()
+  //     }
+  // });
+
+  // newStudent.save(function(err, student) {
+  //   console.log("adding this student: ", student.userName)
+  //   if(err) {
+  //     console.log("Error. Entry not saved")
+  //     return err
+  //   } else {
+  //     console.log("Post saved!")
+  //   }
+  //   callback(null, student);
+  // });
 };
+
+
 
 
 //Retrieve all student records
 exports.getAllStudents = function (callback){
   Student.find({}, function(err, students) {
-    console.log("all the students", students)
+    console.log("all the students", students.length)
+    // console.log("all the students", students[3])
+
     if (err) {
       console.log(err);
     }
@@ -46,7 +73,7 @@ exports.getAllStudents = function (callback){
 // Given the name of a student, retrieve their record from the database
 exports.getStudentByuserName = function (userName, callback) {
   Student.findOne({'userName': userName}, function (err, student) {
-    console.log("line 47")
+    //console.log("line 47", student);
     if (err) {
       console.log(err);
     }
@@ -58,7 +85,7 @@ exports.getStudentByuserName = function (userName, callback) {
 exports.getStudentByPeriod = function (input, callback) {
   // var query = {'classPeriod': input}
   Student.find({classPeriod : input}, function (err, students) {
-    console.log("line 58", students);
+    //console.log("line 58", students);
     if (err) {
       console.log(err);
     }

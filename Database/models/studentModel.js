@@ -9,7 +9,7 @@ var studentSchema = new mongoose.Schema ({
   currentPlaylist: {name: String, type:[]},
   created: {type: Date, Default: Date.now},
   teacher:{type:String},
-  classPeriod:{type: Number},
+  period:{type:String},
   parentOrCaregiver: {
     mother: {type: String},
     motherPhone: {type: String},

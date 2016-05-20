@@ -7,7 +7,7 @@ var mongoose            = require('mongoose');
 var Student             = require('../models/studentModel.js');
 var StudentController   = require('../controllers/studentcontroller');
 
-var dbURI = 'mongodb://localhost/singuLearn'
+var dbURI = 'mongodb://localhost/singuLearnTest'
 
 var clearDB = function (done) {
   mongoose.connection.collections['students'].remove(done);
@@ -28,11 +28,13 @@ describe('Student Controller', function () {
 
   // Connect to database before any tests
   before(function (done) {
-    if (mongoose.connection.db) {
+    if (mongoose.connection.db){
       return done();
     }
-    mongoose.connect(dbURI, done);
+    mongoose.connect(dbURI, done)
+    
   });
+
 
   beforeEach(function(done){
     clearDB(function(){
@@ -87,10 +89,11 @@ describe('Student Controller', function () {
         };
 
       StudentController.saveNewStudent(aStudent, function(err, aStudent){
-          console.log(err)
+          //console.log("is this it?", err)
           expect(err).to.not.exist;
       })
       Student.findOne({firstName: "Slick"}, function(err, student){
+        //console.log("%%%%%%%%%%%%%%%%%", student)
         expect(student.lastName).to.equal("Rick")
         expect(student.parentOrCaregiver.mother).to.equal("Vivian")
         expect(student.parentOrCaregiver.fatherPhone).to.equal("555-555-5555")
@@ -102,8 +105,10 @@ describe('Student Controller', function () {
 
 
       StudentController.getAllStudents(function(err, students){
+        console.log("all students", students[0])
           console.log(err)
           expect(err).to.not.exist;
+          console.log("length", students.length)
           expect(students.length).to.equal(4)
         });
         done();
@@ -111,8 +116,8 @@ describe('Student Controller', function () {
 
     it ('should have a method that given the username of a student, retrieves their record from the database', function (done) {
 
-      StudentController.getStudentByuserName('KimerieGreen', function (err, student) {
-        expect(student.userName).to.equal('KimerieGreen');
+      StudentController.getStudentByuserName('SlickRick', function (err, student) {
+        expect(student.userName).to.equal('SlickRick');
         done();
       });
     });
@@ -125,4 +130,12 @@ describe('Student Controller', function () {
         done();
       });
     });
+
+    // after(function(done){
+    //   db.connection.db.dropDatabase(function(){
+    //     db.connection.close(function(){
+    //       done();
+    //     });
+    //   });
+    // });
   });
