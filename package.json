@@ -2,10 +2,9 @@
   "name": "singulearn",
   "version": "1.0.0",
   "description": "Individualized tools to enable student success",
-  "main": "app.js",
   "scripts": {
     "start": "nodemon Server/server.js",
-    "test": "nodemon Server/server.js"
+    "test": "mocha Database/Tests/StudentTest.js Database/Tests/teacherTest.js"
   },
   "repository": {
     "type": "git",
@@ -20,10 +19,14 @@
   "dependencies": {
     "babel": "^6.5.2",
     "body-parser": "^1.15.1",
+    "chai": "^3.5.0",
+    "chai-datetime": "^1.4.1",
     "d3": "^3.5.17",
     "express": "^4.13.4",
     "express-handlebars": "^3.0.0",
+    "jasmine": "^2.4.1",
     "method-override": "^2.3.5",
+    "mocha": "^2.4.5",
     "mongodb": "^2.1.18",
     "mongoose": "^4.4.16",
     "nodemon": "^1.9.2",
