@@ -7,8 +7,6 @@ exports.saveNewTeacher = function(userInput, callback){
   newTeacher.userName         = userInput.firstName + userInput.lastName;
   newTeacher.subject          = userInput.subject;
   newTeacher.grade            = userInput.grade;
-  // newTeacher.studentByClass   = {};
-  // newTeacher.favorites        = [];
   newTeacher.created          = Date.now();
 
 

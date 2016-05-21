@@ -6,10 +6,10 @@ var assert              = require('chai').assert;
 var mongoose            = require('mongoose');
 var Teacher             = require('../models/teacherModel.js');
 var TeacherController   = require('../controllers/teachercontroller');
-var db                  = require('../Database/db.js')
+var onlinedb            = require('../db.js')
 
 
-var dbURI = db.uri;
+var dbURI = onlinedb.uri;
 
 var clearDB = function (done) {
   mongoose.connection.collections['teachers'].remove(done);

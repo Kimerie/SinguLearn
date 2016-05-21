@@ -6,10 +6,10 @@ var assert              = require('chai').assert;
 var mongoose            = require('mongoose');
 var Student             = require('../models/studentModel.js');
 var StudentController   = require('../controllers/studentcontroller');
-var db                  = require('../Database/db.js')
+var onlinedb            = require('../db.js')
 
 
-var dbURI = db.uri;
+var dbURI = onlinedb.uri;
 
 var clearDB = function (done) {
   mongoose.connection.collections['students'].remove(done);
@@ -29,6 +29,7 @@ describe('Student Model', function () {
 describe('Student Controller', function () {
 
   // Connect to database before any tests
+  
   before(function (done) {
     if (mongoose.connection.db){
       return done();
@@ -92,7 +93,6 @@ describe('Student Controller', function () {
 
     ];
     Student.create(students, done);
-
   });
 
     it ('should create a new student record', function(done){
