@@ -24,13 +24,13 @@ exports.saveNewTeacher = function(userInput, callback){
   callback(null, newTeacher);
 };
 
-exports.updateTeacherRecord = function (firstName, lastname, userInput, callback) {
-  var query = {'firstName': firstName, 'lastName': lastName };
-  Teacher.findOneAndUpdate(query, userInput, function (err, teacher) {
+// Given the name of a student, retrieve their record from the database
+exports.getTeacherByuserName = function (userName, callback) {
+  Teacher.findOne({'userName': userName}, function (err, teacher) {
+    //console.log("line 47", student);
     if (err) {
       console.log(err);
     }
     callback(null, teacher);
   });
-
-}
+};

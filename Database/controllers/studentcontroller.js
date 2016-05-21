@@ -1,5 +1,4 @@
 var Student = require('../models/studentModel.js');
-var _       = require('underscore')
 
 // Save a new student record to the database
 exports.saveNewStudent = function(userInput, callback){
@@ -30,11 +29,8 @@ exports.saveNewStudent = function(userInput, callback){
   });
 };
 
-
-
-
 //Retrieve all student records
-exports.getAllStudents = function (callback){
+exports.getAllStudents = function (callback) {
   Student.find({}, function(err, students) {
     console.log("all the students", students.length)
     // console.log("all the students", students[3])
@@ -44,8 +40,6 @@ exports.getAllStudents = function (callback){
     }
   });
 };
-
-
 
 // Given the name of a student, retrieve their record from the database
 exports.getStudentByuserName = function (userName, callback) {

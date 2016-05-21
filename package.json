@@ -4,7 +4,7 @@
   "description": "Individualized tools to enable student success",
   "scripts": {
     "start": "nodemon Server/server.js",
-    "test": "mocha Database/Tests/StudentTest.js Database/Tests/teacherTest.js"
+    "test": "mocha Database/Tests/StudentTest.js Database/Tests/teacherTest.js Database/Tests/lessonTest.js"
   },
   "repository": {
     "type": "git",

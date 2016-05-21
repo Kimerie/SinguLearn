@@ -117,7 +117,7 @@ describe('Student Controller', function () {
       })
     });
 
-    it ('should read all student record from database at once', function(done){
+    it ('should read all student records from database at once', function(done){
 
 
       StudentController.getAllStudents(function(err, students){
