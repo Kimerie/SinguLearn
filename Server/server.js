@@ -30,7 +30,7 @@ mongoose.connection.on('error', function(err){
 });
 
 // startup our app at heroku ports
-// app.listen(port);
+app.listen(port);
 
 // shoutout to the user
 console.log('Magic happens on port ' + port);
