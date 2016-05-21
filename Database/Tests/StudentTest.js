@@ -6,8 +6,10 @@ var assert              = require('chai').assert;
 var mongoose            = require('mongoose');
 var Student             = require('../models/studentModel.js');
 var StudentController   = require('../controllers/studentcontroller');
+var db                  = require('../Database/db.js')
 
-var dbURI = 'mongodb://localhost/singuLearnTest'
+
+var dbURI = db.uri;
 
 var clearDB = function (done) {
   mongoose.connection.collections['students'].remove(done);
