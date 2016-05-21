@@ -34,11 +34,14 @@ describe('Teacher Controller', function () {
     if (mongoose.connection.db){
       return done();
     }
-    mongoose.connect(dbURI, done)
+    mongoose.connect(dbURI, done);
   });
 
-  beforeEach(function(done){
-    clearDB(function(){
+  before(function(done) {
+    clearDB(done);
+  });
+
+  before(function(done) {
 
       var teachers = [
         {
@@ -52,7 +55,6 @@ describe('Teacher Controller', function () {
 
       ];
       Teacher.create(teachers, done)
-    });
     });
 
     it ('should create a new teacher record', function(done){

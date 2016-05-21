@@ -31,51 +31,67 @@ describe('Student Controller', function () {
     if (mongoose.connection.db){
       return done();
     }
-    mongoose.connect(dbURI, done)
-    
+    mongoose.connect(dbURI, done);
   });
 
+  before(function(done) {
+    clearDB(done);
+  });
 
-  beforeEach(function(done){
-    clearDB(function(){
+  before(function(done) {
 
-      var students = [
-        {
-          firstName: "Kimerie",
-          lastName:"Green",
-          userName: "KimerieGreen",
-          classPeriod: 1,
-          performance: "off-track",
-          completedLessons: [{Lesson: "Analogies"}, {Lesson: "Reading"}],
-          currentPlaylist: [{Lesson:"Fractions"}, {Lesson:"Verbs"}],
-          parentOrCaregiver: undefined
-        },
-        {
-          firstName: "Marcellus",
-          lastName:"Green",
-          userName: "MarcellusGreen",
-          classPeriod: 7,
-          performance: "On-track",
-          completedLessons: [{Lesson: "Analogies"}, {Lesson: "Reading"}],
-          currentPlaylist: [{Lesson:"Fractions"}, {Lesson:"Verbs"}],
-          parentOrCaregiver: undefined
+    var students = [
+      {
+        firstName: "Kimerie",
+        lastName:"Green",
+        userName: "KimerieGreen",
+        classPeriod: 1,
+        performance: "off-track",
+        completedLessons: [{Lesson: "Analogies"}, {Lesson: "Reading"}],
+        currentPlaylist: [{Lesson:"Fractions"}, {Lesson:"Verbs"}],
+        mother: null,
+        motherPhone : null,
+        father : null,
+        fatherPhone : null,
+        aregiver:null,
+        caregiverPhone : null
+      },
+      {
+        firstName: "Marcellus",
+        lastName:"Green",
+        userName: "MarcellusGreen",
+        classPeriod: 7,
+        performance: "On-track",
+        completedLessons: [{Lesson: "Analogies"}, {Lesson: "Reading"}],
+        currentPlaylist: [{Lesson:"Fractions"}, {Lesson:"Verbs"}],
+        mother: null,
+        motherPhone : null,
+        father : null,
+        fatherPhone : null,
+        aregiver:null,
+        caregiverPhone : null
 
-        },
-        {
-          firstName: "Sydney",
-          lastName:"Green",
-          userName: "SydneyGreen",
-          classPeriod: 7,
-          performance: "Ahead of track",
-          completedLessons: [{Lesson: "Analogies"}, {Lesson: "Reading"}],
-          currentPlaylist: [{Lesson:"Fractions"}, {Lesson:"Verbs"}],
-          parentOrCaregiver: undefined
-        },
+      },
+      {
+        firstName: "Sydney",
+        lastName:"Green",
+        userName: "SydneyGreen",
+        classPeriod: 7,
+        performance: "Ahead of track",
+        completedLessons: [{Lesson: "Analogies"}, {Lesson: "Reading"}],
+        currentPlaylist: [{Lesson:"Fractions"}, {Lesson:"Verbs"}],
+        mother: null,
+        motherPhone : null,
+        father : null,
+        fatherPhone : null,
+        aregiver:null,
+        caregiverPhone : null
+      },
 
-      ];
-      Student.create(students, done)
-    });
-    });
+    ];
+    Student.create(students, done);
+
+  });
 
     it ('should create a new student record', function(done){
         var aStudent = {
@@ -95,8 +111,8 @@ describe('Student Controller', function () {
       Student.findOne({firstName: "Slick"}, function(err, student){
         //console.log("%%%%%%%%%%%%%%%%%", student)
         expect(student.lastName).to.equal("Rick")
-        expect(student.parentOrCaregiver.mother).to.equal("Vivian")
-        expect(student.parentOrCaregiver.fatherPhone).to.equal("555-555-5555")
+        expect(student.mother).to.equal("Vivian")
+        expect(student.fatherPhone).to.equal("555-555-5555")
         done();
       })
     });
@@ -121,21 +137,11 @@ describe('Student Controller', function () {
         done();
       });
     });
+    it ('should have a method that given an input, updates the  student record', function (done) {
 
-    it ('should have a method that given the class period of a student, retrieves their record from the database', function (done) {
-
-      StudentController.getStudentByPeriod(1, function (err, students) {
-        // console.log(students.length);
-        expect(students.length).to.equal(2);
+      StudentController.updateStudentRecord('SydneyGreen', 'father','Fred', function (err, student) {
+        expect(student.father).to.equal('Fred');
         done();
       });
     });
-
-    // after(function(done){
-    //   db.connection.db.dropDatabase(function(){
-    //     db.connection.close(function(){
-    //       done();
-    //     });
-    //   });
-    // });
-  });
+    });
