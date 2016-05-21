@@ -60,17 +60,19 @@ exports.getStudentByuserName = function (userName, callback) {
 
 // Given the name of a student, update student personal info in their record in the database
 
-exports.updateStudentRecord = function (userName, filter, userInput) {
+exports.updateStudentRecord = function (userName, param, userInput, callback) {
   var query = {'userName': userName};
-  Student.findOneAndUpdate(query, {$set : {filter : userInput}}, {new: true, upsert:true}, function (err, student) {
+
+  Student.findOne(query, function (err, student) {
     if (err) {
       console.log(err);
     }
-    console.log('****************', student[filter])
-    //callback(null, student)
+    student[param] = userInput;
+    student.save();
+    console.log('****************', student[param])
+    callback(null, student)
   });
-
-}
+};
 
 // Given the name of a student, update playlist info in their record in the database
 

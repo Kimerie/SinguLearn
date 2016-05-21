@@ -137,7 +137,7 @@ describe('Student Controller', function () {
         done();
       });
     });
-    it ('should have a method that given an input, updates the  student record', function (done) {
+    it ('should have a method that given an input and searh param, updates the student record', function (done) {
 
       StudentController.updateStudentRecord('SydneyGreen', 'father','Fred', function (err, student) {
         expect(student.father).to.equal('Fred');
