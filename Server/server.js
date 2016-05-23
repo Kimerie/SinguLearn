@@ -9,11 +9,12 @@ var db              = require('../Database/db.js')
 var port = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '../public/index.html'));
+app.use(express.static(__dirname + '../public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'));
 
 app.get('/', function(req, res){
+  res.render('index')
   console.log('success', res.body)
   res.send(res.body)
 });
