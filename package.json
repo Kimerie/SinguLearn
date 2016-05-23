@@ -19,6 +19,7 @@
   "dependencies": {
     "babel": "^6.5.2",
     "body-parser": "^1.15.1",
+    "bootstrap": "^3.3.6",
     "chai": "^3.5.0",
     "chai-datetime": "^1.4.1",
     "d3": "^3.5.17",
