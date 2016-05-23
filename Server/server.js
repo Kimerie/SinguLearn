@@ -9,7 +9,11 @@ var db              = require('../Database/db.js')
 var port = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '../public'));
+// app.use(express.static(__dirname + '../public'));
+process.env.PWD = process.cwd();
+app.set('views', path.join(process.env.PWD, 'public'));
+
+app.use(express.static(path.join(process.env.PWD, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'));
 
