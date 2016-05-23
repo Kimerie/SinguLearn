@@ -14,7 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'));
 
 app.get('/', function(req, res){
-  res.render('index')
   console.log('success', res.body)
   res.send(res.body)
 });
