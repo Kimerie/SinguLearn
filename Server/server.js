@@ -1,26 +1,37 @@
 //modules
 var express         = require('express');
 var app             = express();
+var Router          = require('react-router').Router
+var Route           = require('react-router').Route
+var Link            = require('react-router').Link
 var bodyParser      = require('body-parser');
 var methodOverride  = require('method-override')
 var mongoose        = require('mongoose')
 var db              = require('../Database/db.js')
+// var swig            = require('swig');
+var React           = require('react');
+var ReactDOM        = require('react-dom/server');
+var Router          = require('react-router');
+var Routes          = require('./routes');
+var path            = require('path')
+var compression     = require('compression')
+require('babel-register');
 
-var port = process.env.PORT || 8000;
+var PORT = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
-// app.use(express.static(__dirname + '../public'));
-process.env.PWD = process.cwd();
-// app.set('views', path.join(process.env.PWD, 'public'));
-
-app.use(express.static(path.join(process.env.PWD, 'public')));
+// app.use('/static', express.static(__dirname + '../public'))
+app.use(compression())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'));
+app.use(express.static((__dirname + '../public')));
 
 app.get('/', function(req, res){
-  console.log('success', res.body)
-  res.send(res.body)
+  console.log('success')
+  res.sendFile(path.join(__dirname, '../public', 'index.html'))
 });
+
+
 
 var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
                 replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };
@@ -34,11 +45,11 @@ mongoose.connection.on('error', function(err){
   console.log('connection error:' + err)
 });
 
-// startup our app at heroku ports
-app.listen(port);
+// start up app at heroku ports
+app.listen(PORT);
 
 // shoutout to the user
-console.log('Magic happens on port ' + port);
+console.log('Production Express server. Magic happens on port ' + PORT);
 
 // expose app
 exports = module.exports = app;
