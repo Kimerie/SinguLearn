@@ -1,11 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="singulearn">
 <head>
   <meta charset="UTF-8">
+  <base href="/">
   <title>SinguLearn</title>
+  <link rel="stylesheet" type='text/css' href="assets/styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
-<header>
-</header>
 <body>
+<ng-view></ng-view>
+<script type="text/javascript" src="./libs/angular/angular.js"></script>
+<script type="text/javascript" src="./libs/angular-route/angular-route.js"></script>
+
+<script type="text/javascript" src="appModule.js"></script>
+<script type="text/javascript" src="appRoutes.js"></script>
+
+<script type="text/javascript" src="./App/Components/TeacherDashboard/TeacherDashServices.js"></script>
+
+<script type="text/javascript" src="./App/Components/TeacherDashboard/TeachDashctrl.js"></script>
 </body>
 </html>
