@@ -38,6 +38,7 @@ exports.getAllStudents = function (callback) {
     if (err) {
       console.log(err);
     }
+    callback(null, students);
   });
 };
 
