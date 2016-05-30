@@ -7,7 +7,7 @@ var mongoose        = require('mongoose')
 var db              = require('../Database/db.js')
 var Student         = require('../Database/controllers/studentcontroller.js')
 var StudentModel    = require('../Database/models/studentModel.js')
-// var Routes          = require('./routes');
+var router          = express.Router();
 var path            = require('path')
 var compression     = require('compression')
 
@@ -17,17 +17,18 @@ app.use(bodyParser.json());
 app.use(compression())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'));
-app.use(express.static(__dirname + '../Public'))
-// app.use(express.static((__dirname + '../public')));
-// app.use(express.static((__dirname + '../public/assets')));
+app.use(express.static('Public'));
+app.use(express.static('assets'));
+app.use(express.static('Components'));
 
-// app.use('assets', express.static(__dirname + '../public/assets'))
+
 
 
 
 // app.get('/', function(req, res){
 //   console.log('success')
-//   res.sendFile(path.join(__dirname, '../public', 'index.html'))
+//   // res.sendFile(path.join(__dirname, '../Public/index.html'))
+//   res.end();
 // });
 
 app.get('/api/students', function(req, res){

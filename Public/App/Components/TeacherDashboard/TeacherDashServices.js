@@ -6,8 +6,10 @@ angular.module('TeacherDash.services', [])
         method: 'GET',
         url: '/api/students'
      })
-    .then(function (resp) {
-      return resp.data;
+    .success(function(data) {
+        console.log('data successfully retrieved', data);
+    }).error(function() {
+        console.log("error retrieving data");
     });
   };
   return {
