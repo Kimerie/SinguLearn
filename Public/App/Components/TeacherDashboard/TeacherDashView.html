@@ -1,36 +1,18 @@
-<nav class="navbar navbar-inverse navbar-static-top custom-navbar fullwidth" role="navigation">
-  <div class="container">
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <div class="navbar-header">
+<nav class="navbar navbar-inverse navbar-static-top custom-navbar container-fullwidth" role="navigation">
+  <div class="navbar-header">
       <a class="navbar-brand" rel="home" href="#" title="Singulearn">
         Singulearn
       </a>
     </div>
-    <!-- Non-collapsing right-side icons -->
-    <!-- <ul class="nav navbar-nav navbar-right">
-      <li>
-        <a href="#" class="fa fa-cog"></a>
-      </li>
-      <li>
-        <a href="#" class="fa fa-home"></a>
-      </li>
-    </ul> -->
-    <!-- the collapsing menu -->
-    <div class="collapse navbar-collapse navbar-left">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+    <div><ul class="nav navbar-nav navbar-right container-fullwidth">
+        <li class=nav-links><a href="#"><span class="username">Welcome, username !</span></a></li>
+        <li class=nav-links><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+        <li class=nav-links><a href="#">Account</a></li>
+        <li class=nav-links><a href="#">Help </a></li>
+        <li class=nav-links><a href="#">Sign Out</a></li>
       </ul>
-    </div>
-    <!--/.nav-collapse -->
-  </div>
-  <!--/.container -->
+      </div>
+ <!--/.container -->
 </nav>
 <div id="wrapper">
  <!-- Sidebar -->
@@ -38,40 +20,58 @@
       <ul class="sidebar-nav">
           <li class="sidebar-brand">
               <a href="#">
-                Singulearn
+                Dashboard
               </a>
-          </li>
-          <li>
-              <a href="#">Dashboard</a>
           </li>
           <li>
               <a href="#">Students</a>
           </li>
           <li>
-              <a href="#">Content</a>
+              <a href="#">Playlists</a>
           </li>
           <li>
-              <a href="#">Task and Todo</a>
+              <a href="#">Q &amp; A</a>
           </li>
       </ul>
-  </div>
+      <div class="sidebar-footer footer-links">
+        <div class="col-xs-4">
+          <a class="nav-link" ng-href="#/Account">Account</a>
+        </div>
+        <div class="col-xs-4">
+          <a class="nav-link" ng-href="#/">Signout</a>
+        </div>
+        <div class="col-xs-4">
+          <a class="nav-link" ng-href="#/help">Help</a>
+        </div>
+      </div>
+
+<!--     <a class="pull-right" ng-href="#">Back to top</a>
+ -->
+</div>
+
 <!-- /#sidebar-wrapper -->
 <!-- Page Content -->
-  <div id="page-content-wrapper">
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col-lg-12">
-                  <h1>Dashboard</h1>
-                  <p><div ng-controller="TeacherCtrl"> Hello World. {{ valediction }}</div></p>
-              </div>
-          </div>
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <p></p>
+      <div class="row">
+        <div class="col-md-4">
+          <a href="#"><button type="button" class="btn btn-lg btn-primary"><i class="fa fa-users"></i></button></a>
+        </div>
+        <div class="col-md-4">
+          <a href="#"><button type="button" class="btn btn-lg btn-primary"><i class="fa fa-book"></i></button></a>
+        </div>
+        <div class="col-md-4">
+          <a href="#"><button type="button" class="btn btn-lg btn-primary"><i class="fa fa-comments"></i></button></a>
+        </div>
       </div>
-      <div><a href="#">Link</a></div>
-      <div>Link</div>
-      <div>Link</div>
-
-  </div>
-<!-- /#page-content-wrapper -->
+    </div>
+    <br>
+    <p><div ng-controller="TeacherCtrl"> Hello World. {{ valediction }}</div></p>
+<p><div><li ng-repeat="student in studentInfo">{{student.firstName}}</li></div></p>
+<br>
 
 </div>
-  
+
+<!-- /#page-content-wrapper -->
+

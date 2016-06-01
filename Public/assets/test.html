@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" ng-app="singulearn">
+<head>
+  <link rel="stylesheet" type='text/css' href="./styles.css">
+</head>
+<body>
+  <button draggable="true" onDragStart="event.dataTransfer.setData('text/html', 'Ran Off')">Ran off</button>
+  <button draggable="true" onDragStart="event.dataTransfer.setData('text/plain', 'on the plug twice')">on the plug twice</button>
+  <div class="dropzone"></div>
+<div class="dropzone"></div> 
+<div class="dropzone"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script>
+ var dragged;
+
+  /* events fired on the draggable target */
+  document.addEventListener("drag", function( event ) {
+
+  }, false);
+
+  document.addEventListener("dragstart", function( event ) {
+    console.log('heeeeeeeerrrrrrrre we go')
+      // store a ref. on the dragged elem
+      dragged = event.target;
+      // make it half transparent
+      event.target.style.opacity = .5;
+  }, false);
+
+  document.addEventListener("dragend", function( event ) {
+      // reset the transparency
+      console.log('weeeeeeeeee done!')
+      event.target.style.opacity = "";
+  }, false);
+
+  /* events fired on the drop targets */
+  document.addEventListener("dragover", function( event ) {
+    // console.log("dragover")
+      // prevent default to allow drop
+      event.preventDefault();
+  }, false);
+
+  document.addEventListener("dragenter", function( event ) {
+      // highlight potential drop target when the draggable element enters it
+      console.log("dragcenter")
+      if ( event.target.className == "dropzone" ) {
+          event.target.style.background = "purple";
+      }
+
+  }, false);
+
+  document.addEventListener("dragleave", function( event ) {
+      // reset background of potential drop target when the draggable element leaves it
+      console.log("goodbye")
+      if ( event.target.className == "dropzone" ) {
+          event.target.style.background = "";
+      }
+
+  }, false);
+
+  // called when draggable is dropped on droppable 
+function drop (event) {
+
+  // drop = this;
+  // $(drop).removeClass('drop-active');
+
+  var dataList, dataHTML, dataText;
+
+  // collect our data (based on what browser support we have)
+  try {
+    dataList = event.dataTransfer.getData('text/uri-list');
+    dataHTML = event.dataTransfer.getData('text/html');
+  } catch (e) {
+    dataText = event.dataTransfer.getData('text');
+  }
+
+  event.target.textContent = dataHTML;
+  console.log(event.target.textContent) 
+
+  // we have access to the HTML
+  if (dataHTML) {
+    $(drop).empty();
+    $(drop).prepend(dataHTML);
+
+    // check if this element is in the right spot
+    checkCorrectDrop(drop, dragItem);
+
+    // see if the final image is complete
+    checkCorrectFinalImage();
+  }
+
+  // only have access to text (old browsers + IE)
+
+  else {
+    $(drop).empty();
+    $(drop).prepend($(dragItem).clone());
+
+    // check if this element is in the right spot
+    checkCorrectDrop(drop, dragItem);
+
+    // see if the final image is complete
+    checkCorrectFinalImage();
+  }
+
+  event.preventDefault();
+  event.stopPropagation();
+}
+
+//   function onDrop(event) {
+//   var data  = event.dataTransfer.getData("text/html");
+//   console.log(data);
+//   event.target.textContent = data;
+//     console.log('this is event target', event.target)
+
+//   console.log('this is event.target.textcontent', event.target.textContent)
+//   event.preventDefault();
+// }
+  document.addEventListener("drop", function(event) {
+      // prevent default action (open as link for some elements)
+      // move dragged elem to the selected drop target
+        event.preventDefault();
+
+      if ( event.target.className == "dropzone" ) {
+          event.target.style.background = "";
+          dragged.parentNode.removeChild( dragged );
+          event.target.appendChild( dragged );
+      }
+      // drop(event);
+    console.log("drop")
+  }, false);
+
+  </script>
+</body>
+</html>
