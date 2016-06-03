@@ -44,5 +44,9 @@
     "passport-twitter": "^1.0.4",
     "path": "^0.12.7",
     "underscore": "^1.8.3"
+  },
+  "engines": {
+    "node": "0.8.4",
+    "npm": "1.1.41"
   }
 }
