@@ -6,7 +6,6 @@ var singulearn = angular.module('singulearn', [
   'ClassListCtrl',
   'TeacherWorkspaceController',
   // 'appConfig',
-  'dndLists',
   'ngRoute',
 
 ])
