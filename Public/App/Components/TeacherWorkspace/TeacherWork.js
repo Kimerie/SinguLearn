@@ -1,4 +1,4 @@
-var teachWork =angular.module('TeacherWorkspaceController', [])
+var teachWork = angular.module('TeacherWorkspaceController', [])
 
 teachWork.controller('TeachWorkCtrl',['$scope', function ($scope) {
   console.log('inside Teacher Workspace');
@@ -66,50 +66,3 @@ teachWork.directive('droppable', function () {
   }
 })
 
-// .directive('draggable', ['$document', function($document) {
-//   return function(scope, element, attr) {
-//     var startX = 0, startY = 0, x = 0, y = 0;
-//     element.css({
-//      position: 'relative',
-//      border: 'none',
-//      backgroundColor: 'lightgrey',
-//      cursor: 'pointer',
-//      display: 'block',
-//      width: '65px'
-//     });
-//     element.on('mousedown', function(event) {
-//       // Prevent default dragging of selected content
-//       event.preventDefault();
-//       startX = event.screenX - x;
-//       startY = event.screenY - y;
-//       $document.on('mousemove', mousemove);
-//       $document.on('mouseup', mouseup);
-//     });
-
-//     function mousemove(event) {
-//       y = event.screenY - startY;
-//       x = event.screenX - startX;
-//       element.css({
-//         top: y + 'px',
-//         left:  x + 'px'
-//       });
-//     }
-
-//     function mouseup() {
-//       $document.off('mousemove', mousemove);
-//       $document.off('mouseup', mouseup);
-//     }
-
-//     var internalDNDType = "cheese";
-
-//     function dropHandler(event){
-//       console.log('in here!!!!')
-//       var li = document.createElement('li')
-//       var data = event.datatTransfer.getData(internalDNDType)
-//       if(data === 'cheese'){
-//         li.textContent ="peanut butter"
-//       }
-//       event.target.appendChild(li);
-//     }
-//   };
-// }]);
