@@ -3,7 +3,7 @@ var singulearn = angular.module('singulearn', [
   // 'StudentWork',
   'TeacherDash.services',
   // 'Demo',
-  'TeacherDashCtrl',
+  'ClassListCtrl',
   'TeacherWorkspaceController',
   // 'appConfig',
   'dndLists',
@@ -18,8 +18,7 @@ var singulearn = angular.module('singulearn', [
   })
 
   .when('/dashboard', {
-    templateUrl: 'App/Components/TeacherDashboard/TeacherDashView.html',
-    controller:'TeacherCtrl'
+    templateUrl: 'App/Components/TeacherDashboard/TeacherDashView.html'
   })
 
   .when('/content', {
@@ -27,7 +26,11 @@ var singulearn = angular.module('singulearn', [
     controller:'TeacherCtrl'
   })
 
-   .when('/questions', {
+.when('/class', {
+    templateUrl: 'App/Components/TeacherWorkSpace/classList.html',
+    controller:'ClassCtrl'
+  })
+   .when('/QA', {
     templateUrl: 'App/Components/TeacherDashboard/TeacherDashView.html',
     controller:'TeacherCtrl'
   })
@@ -38,12 +41,16 @@ var singulearn = angular.module('singulearn', [
 
    .when('/', {
     templateUrl: 'App/Components/login/landingpage.html'
-    // controller:'TeacherCtrl'
+    // controller:'loginCtrl'
   })
+  //  .when('/builder', {
+  //   templateUrl: 'App/assets/test.html',
+  //   // controller:'TeachWorkCtrl'
+  // })
 
-  // .otherwise({
-  //   redirectTo: '/'
-  // });
+  .otherwise({
+    redirectTo: '/dashboard'
+  });
 
   // $locationProvider.html5Mode(true);
 

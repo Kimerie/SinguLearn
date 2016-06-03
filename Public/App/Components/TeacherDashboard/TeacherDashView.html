@@ -1,15 +1,15 @@
 <nav class="navbar navbar-inverse navbar-static-top custom-navbar container-fullwidth" role="navigation">
   <div class="navbar-header">
-      <a class="navbar-brand" rel="home" href="#" title="Singulearn">
+      <a class="navbar-brand" rel="home" href="#/dashboard" title="Singulearn">
         Singulearn
       </a>
     </div>
     <div><ul class="nav navbar-nav navbar-right container-fullwidth">
-        <li class=nav-links><a href="#"><span class="username">Welcome, username !</span></a></li>
+        <li class=nav-links><a href="#"><span class="username">Hello, Kimerie!</span></a></li>
         <li class=nav-links><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
-        <li class=nav-links><a href="#">Account</a></li>
-        <li class=nav-links><a href="#">Help </a></li>
-        <li class=nav-links><a href="#">Sign Out</a></li>
+        <li class=nav-links><a href="#/account">Account</a></li>
+        <li class=nav-links><a href="#/help">Help </a></li>
+        <li class=nav-links><a href="#/">Sign Out</a></li>
       </ul>
       </div>
  <!--/.container -->
@@ -19,18 +19,18 @@
   <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
           <li class="sidebar-brand">
-              <a href="#">
+              <a href="#/dashboard">
                 Dashboard
               </a>
           </li>
           <li>
-              <a href="#">Students</a>
+              <a href="#/class">Students</a>
           </li>
           <li>
-              <a href="#">Playlists</a>
+              <a href="#/playlists">Playlists</a>
           </li>
           <li>
-              <a href="#">Q &amp; A</a>
+              <a href="#/Chat">Chat</a>
           </li>
       </ul>
       <div class="sidebar-footer footer-links">
@@ -56,19 +56,17 @@
     <p></p>
       <div class="row">
         <div class="col-md-4">
-          <a href="#"><button type="button" class="btn btn-lg btn-primary"><i class="fa fa-users"></i></button></a>
+          <a href="#/class"><button type="button" class="btn btn-lg btn-primary"><i class="fa fa-users"></i>Class</button></a>
         </div>
         <div class="col-md-4">
-          <a href="#"><button type="button" class="btn btn-lg btn-primary"><i class="fa fa-book"></i></button></a>
+          <a href="#playlists"><button type="button" class="btn btn-lg btn-primary"><i class="fa fa-book"></i>Playlists</button></a>
         </div>
         <div class="col-md-4">
-          <a href="#"><button type="button" class="btn btn-lg btn-primary"><i class="fa fa-comments"></i></button></a>
+          <a href="#/chat"><button type="button" class="btn btn-lg btn-primary"><i class="fa fa-comments"></i>Chat</button></a>
         </div>
       </div>
     </div>
     <br>
-    <p><div ng-controller="TeacherCtrl"> Hello World. {{ valediction }}</div></p>
-<p><div><li ng-repeat="student in studentInfo">{{student.firstName}}</li></div></p>
 <br>
 
 </div>

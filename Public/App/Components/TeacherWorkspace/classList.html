@@ -53,28 +53,10 @@
 <!-- Page Content -->
 <div id="page-content-wrapper">
   <div class="container-fluid">
-   <div ng-controller="TeachWorkCtrl">
-    <div class="container work">
-        <header><h1>Select Lesson</h1></header>
-        <section>
-            <div draggable="true" ng-repeat="color in colors track by color.id">{{color.name}}</div>
-        </section>
-    </div>
-    <div class="container work">
-        <header><h1>Drop Lesson Here</h1></header>
-        <section droppable="true">
-            <div><span>You dragged in: </span>
-                <div ng-repeat="name in items track by $index">
-                    <span ng-show="$index != 0"></span>
-                    {{name}}
-                </div>
-            </div>
-        </section>
-    </div>
-    
-   <!--  <button ng-click='sayHi()'>Say hi!</button>
-    <pre>{{items|json}}</pre> -->
-</div>
+    <!-- <p><div ng-controller="ClassCtrl"> Hello World. {{ valediction }}</div></p> -->
+ <h2> Your Students</h2>   
+<p><div><li ng-repeat="student in studentInfo">{{student.firstName}} {{student.lastName}} {{student.performance}}</li></div></p>
+
 </div>
 
 <!-- /#page-content-wrapper -->

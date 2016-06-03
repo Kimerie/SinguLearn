@@ -1,27 +1,33 @@
-<form id="login" name="userLogin">
+<nav class="navbar navbar-inverse navbar-static-top custom-navbar container-fullwidth" role="navigation">
+  <div class="navbar-header">
+    </div>
+    <div><ul class="nav navbar-nav navbar-right container-fullwidth">
+        <li class=nav-links><a href="#"><span class="username"></span></a></li>
+        <li class=nav-links><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+       <!--  <li class=nav-links><a href="#/account">Account</a></li> -->
+        <li class=nav-links><a href="#/help">Help </a></li>
+        <li class=nav-links><a href="#/Dashboard">Login</a></li>
+      </ul>
+      </div>
+ <!--/.container -->
+</nav>
+<div id="login" class="userLogin">
 <!-- <div ng-contoller="UserSelectController"> -->
 <div class="container">
-  <div class="userlogin">
-    <h3 class="wrong"ng-show="show">Wrong Username and/or Password. Try again!</h3>
-      <form name="signupForm" class="form-signin" ng-submit='login()'>
-        <h2 class="form-signin-heading">Sign In</h2>
-        <label for="inputUsername" class="sr-only">Username</label>
-        <input type="username" id="username" ng-model='username' class="form-control" placeholder="Username" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" ng-model='password' class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"><span class="remember-me">Remember me</span>
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" ng-click='login()'type="submit">Login</button>
-      </form>
-      <a class="already" href="/">Don't have an account? <strong>Continue as guest</strong> ...</a>
-      <!-- <p><a class="already" href="/register" ng-click='getInfo()'>Business? <strong>Register Here</strong> ...</a></p> -->
-      <br>
-      <form name="userLogin">
-      </form>
+  <h1 class="brand-login">Singulearn</h1>
+  <h3 class="wrong"ng-show="show">Wrong Username and/or Password. Try again!</h3>
+  <form name="signupForm" class="form-signin">
+    <h2 class="form-signin-heading">Sign In</h2>
+    <label for="inputUsername" class="sr-only">Username</label>
+    <input type="username" id="username"  class="form-control" placeholder="Username" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword"  class="form-control" placeholder="Password" required>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="remember-me"><span class="remember-me">Remember me</span>
+      </label>
+    </div>
+    <a href="#/dashboard"><button class="btn btn-lg btn-primary btn-block "  type="submit">Login</button></a>
+  </form>
     </div>
 </div>
-</div>
-</form>
