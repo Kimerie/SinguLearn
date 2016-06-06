@@ -4,9 +4,9 @@ var app             = express();
 var bodyParser      = require('body-parser');
 var methodOverride  = require('method-override')
 var mongoose        = require('mongoose')
-var db              = require('../Database/db.js')
-var Student         = require('../Database/controllers/studentcontroller.js')
-var StudentModel    = require('../Database/models/studentModel.js')
+var db              = require('Database/db.js')
+var Student         = require('Database/controllers/studentcontroller.js')
+var StudentModel    = require('Database/models/studentModel.js')
 var router          = express.Router();
 var path            = require('path')
 var compression     = require('compression')
@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use(compression())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'));
-app.use(express.static(path.join(process.env.PWD, '../Public')));
+app.use(express.static(path.join(process.env.PWD, 'Public')));
 app.use(express.static(path.join(process.env.PWD, 'assets')));
 app.use(express.static(path.join(process.env.PWD, 'Components')));
 // app.use(express.static('assets'));
