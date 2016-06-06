@@ -28,11 +28,10 @@ app.use(express.static(path.join(process.env.PWD, 'Components')));
 
 
 
-// app.get('/', function(req, res){
-//   console.log('success')
-//   // res.sendFile(path.join(__dirname, '../Public/index.html'))
-//   res.end();
-// });
+app.get('/', function(req, res){
+  console.log('success')
+  res.sendFile(path.join(__dirname, '../Public/index.html'))
+});
 
 app.get('/api/students', function(req, res){
   Student.getAllStudents(function(err, students){
