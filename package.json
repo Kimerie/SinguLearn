@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Individualized tools to enable student success",
   "scripts": {
-    "start": "nodemon Server/server.js",
+    "start": "nodemon server.js",
     "test": "mocha Database/Tests/StudentTest.js Database/Tests/teacherTest.js Database/Tests/lessonTest.js", 
     "build-assets": "npm install"
   },
