@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(path.join(process.env.PWD, 'Public')));
 app.use(express.static(path.join(process.env.PWD, 'assets')));
+app.use(express.static(path.join(process.env.PWD, 'Components')));
 // app.use(express.static('assets'));
 // app.use(express.static('Components'));
 
