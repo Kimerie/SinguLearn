@@ -12,20 +12,26 @@ var path            = require('path')
 var compression     = require('compression')
 
 var PORT = process.env.PORT || 8000;
+process.env.PWD = process.cwd();
 
 app.use(bodyParser.json());
 app.use(compression())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'));
-// app.use(express.static('Public'));
-app.use(express.static('assets'));
+app.use(express.static(path.join(process.env.PWD, 'Public')));
+app.use(express.static(path.join(process.env.PWD, 'assets')));
+// app.use(express.static('assets'));
 // app.use(express.static('Components'));
-console.log('what is dirname', __dirname)
-app.get('/', function(req, res){
-  console.log('success')
-  res.sendFile(path.join(__dirname, '../Public/index.html'))
-  // res.end();
-});
+
+
+
+
+
+// app.get('/', function(req, res){
+//   console.log('success')
+//   // res.sendFile(path.join(__dirname, '../Public/index.html'))
+//   res.end();
+// });
 
 app.get('/api/students', function(req, res){
   Student.getAllStudents(function(err, students){
