@@ -9,13 +9,13 @@ var Student         = require('./Database/controllers/studentcontroller.js')
 var StudentModel    = require('./Database/models/studentModel.js')
 var router          = express.Router();
 var path            = require('path')
-var compression     = require('compression')
+// var compression     = require('compression')
 
 var PORT = process.env.PORT || 8000;
 process.env.PWD = process.cwd();
 
 app.use(bodyParser.json());
-app.use(compression())
+// app.use(compression())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(path.join(process.env.PWD, 'Public')));
