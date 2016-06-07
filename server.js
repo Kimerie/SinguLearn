@@ -21,6 +21,7 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(path.join(process.env.PWD, 'Public')));
 app.use(express.static(path.join(process.env.PWD, 'assets')));
 app.use(express.static(path.join(process.env.PWD, 'Components')));
+app.set('case sensitive routing', true);
 // app.use(express.static('assets'));
 // app.use(express.static('Components'));
 
@@ -28,10 +29,10 @@ app.use(express.static(path.join(process.env.PWD, 'Components')));
 
 
 
-app.get('/', function(req, res){
-  console.log('success')
-  res.sendFile(path.join(__dirname, '../Public/index.html'))
-});
+// app.get('/', function(req, res){
+//   console.log('success')
+//   res.sendFile(path.join(__dirname, '../Public/index.html'))
+// });
 
 app.get('/api/students', function(req, res){
   Student.getAllStudents(function(err, students){
