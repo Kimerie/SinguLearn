@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-static-top custom-navbar container-fullwidth" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top custom-navbar container-fullwidth" role="navigation">
   <div class="navbar-header">
       <a class="navbar-brand" rel="home" href="#/dashboard" title="Singulearn">
         Singulearn
@@ -33,30 +33,25 @@
               <a href="#/Chat">Chat</a>
           </li>
       </ul>
-      <div class="sidebar-footer footer-links">
-        <div class="col-xs-4">
-          <a class="nav-link" ng-href="#/Account">Account</a>
-        </div>
-        <div class="col-xs-4">
-          <a class="nav-link" ng-href="#/">Signout</a>
-        </div>
-        <div class="col-xs-4">
-          <a class="nav-link" ng-href="#/help">Help</a>
-        </div>
-      </div>
-
-<!--     <a class="pull-right" ng-href="#">Back to top</a>
- -->
 </div>
 
 <!-- /#sidebar-wrapper -->
+
 <!-- Page Content -->
 <div id="page-content-wrapper">
   <div class="container-fluid">
-    <!-- <p><div ng-controller="ClassCtrl"> Hello World. {{ valediction }}</div></p> -->
- <h2> Your Students</h2>   
-<p><div><li ng-repeat="student in studentInfo">{{student.firstName}} {{student.lastName}} {{student.performance}}</li></div></p>
-
+ <div ng-controller= "ClassCtrl">
+<div class="col-lg-6">
+        <div class="container work">  
+        <header><h1>Your Students</h1></header>
+        <section>
+            <div class="students"> 
+              <p><div><li ng-repeat="student in studentInfo">{{student.firstName}} {{student.lastName}} {{student.performance}}</li></div></p>
+              </div>
+        </section>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- /#page-content-wrapper -->

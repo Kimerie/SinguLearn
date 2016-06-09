@@ -1,11 +1,11 @@
-<nav class="navbar navbar-inverse navbar-static-top custom-navbar container-fullwidth" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top custom-navbar container-fullwidth" role="navigation">
   <div class="navbar-header">
       <a class="navbar-brand" rel="home" href="#/dashboard" title="Singulearn">
         Singulearn
       </a>
     </div>
     <div><ul class="nav navbar-nav navbar-right container-fullwidth">
-        <li class=nav-links><a href="#"><span class="username">Hello, Kimerie!</span></a></li>
+        <!-- <li class=nav-links><a href="#"><span class="username">Welcome, Kimerie !</span></a></li> -->
         <li class=nav-links><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
         <li class=nav-links><a href="#/account">Account</a></li>
         <li class=nav-links><a href="#/help">Help </a></li>
@@ -27,13 +27,13 @@
               <a href="#/class">Students</a>
           </li>
           <li>
-              <a href="#/playlists">Playlists</a>
+              <a href="#/playlists">Playlist Builder</a>
           </li>
           <li>
               <a href="#/Chat">Chat</a>
           </li>
       </ul>
-      <div class="sidebar-footer footer-links">
+      <!-- <div class="sidebar-footer footer-links">
         <div class="col-xs-4">
           <a class="nav-link" ng-href="#/Account">Account</a>
         </div>
@@ -43,7 +43,7 @@
         <div class="col-xs-4">
           <a class="nav-link" ng-href="#/help">Help</a>
         </div>
-      </div>
+      </div> -->
 
 <!--     <a class="pull-right" ng-href="#">Back to top</a>
  -->
@@ -68,8 +68,27 @@
     </div>
     <br>
 <br>
+<div ng-controller= "ClassCtrl">
+<div class="col-lg-6">
+        <div class="container work dash">  
+        <header><h1>Your Students</h1></header>
+        <section>
+            <div class="students"> 
+              <p><div><li ng-repeat="student in studentInfo">{{student.firstName}} {{student.lastName}} {{student.performance}}</li></div></p>
+              </div>
+        </section>
+      </div>
+    </div>
+  </div>
+    <div class="col-lg-6">
+        <div class="container work dash">  
+        <header><h1>Content Library</h1></header>
+        <section>
+            <div class="lessons">lessons go here</div>
+        </section>
+      </div>
+    </div>
 
 </div>
-
 <!-- /#page-content-wrapper -->
 

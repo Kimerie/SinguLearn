@@ -5,41 +5,43 @@ var singulearn = angular.module('singulearn', [
   // 'Demo',
   'ClassListCtrl',
   'TeacherWorkspaceController',
-  // 'appConfig',
+  'ngTouch',
+  'ngAnimate',
+  'ui.bootstrap',
   'ngRoute',
 
 ])
 .config(function($routeProvider, $locationProvider) {
   $routeProvider
   .when('/home', {
-    templateUrl: 'StudentDashView.html',
-    controller:'StudentDash.js'
+    templateUrl: 'studentDashView.html',
+    controller:'studentDash'
   })
 
   .when('/dashboard', {
-    templateUrl: 'App/Components/TeacherDashboard/TeacherDashView.html'
+    templateUrl: 'app/components/teacherDashboard/teacherDashView.html'
   })
 
   .when('/content', {
-    templateUrl: 'App/Components/TeacherDashboard/TeacherDashView.html',
+    templateUrl: 'app/components/teacherDashboard/teacherDashView.html',
     controller:'TeacherCtrl'
   })
 
 .when('/class', {
-    templateUrl: 'App/Components/TeacherWorkSpace/classList.html',
+    templateUrl: 'app/components/teacherWorkSpace/classList.html',
     controller:'ClassCtrl'
   })
    .when('/QA', {
-    templateUrl: 'App/Components/TeacherDashboard/TeacherDashView.html',
+    templateUrl: 'app/components/teacherDashboard/teacherDashView.html',
     controller:'TeacherCtrl'
   })
    .when('/playlists', {
-    templateUrl: 'App/Components/TeacherWorkSpace/TeacherWork.html',
+    templateUrl: 'app/Components/teacherWorkSpace/teacherWork.html',
     controller:'TeachWorkCtrl'
   })
 
    .when('/', {
-    templateUrl: 'App/Components/login/landingpage.html'
+    templateUrl: 'app/components/login/landingpage.html'
     // controller:'loginCtrl'
   })
   //  .when('/builder', {

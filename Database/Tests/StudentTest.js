@@ -45,13 +45,14 @@ describe('Student Controller', function () {
 
     var students = [
       {
-        firstName: "Kimerie",
-        lastName:"Green",
-        userName: "KimerieGreen",
+        firstName: "Lebron",
+        lastName:"James",
+        fullName: "Lebron James",
+        userName: "LebronJames",
         classPeriod: 1,
-        performance: "off-track",
-        completedLessons: [{Lesson: "Analogies"}, {Lesson: "Reading"}],
-        currentPlaylist: [{Lesson:"Fractions"}, {Lesson:"Verbs"}],
+        performance: "Off-track",
+        completedLessons: [{lessonType: "Analogies", lessonName: "Analogies: Life is a game. Play wisely.", id: 1}, {lessonType: "Reading", lessonName: "The life of Frederick Douglas", id: 2}],
+        currentPlaylist: [{lessonType: "Nouns", lessonName: "Me, myself, and I.", id: 1}],
         mother: null,
         motherPhone : null,
         father : null,
@@ -62,11 +63,12 @@ describe('Student Controller', function () {
       {
         firstName: "Marcellus",
         lastName:"Green",
+        fullName: "Marcellus Green",
         userName: "MarcellusGreen",
         classPeriod: 7,
         performance: "On-track",
-        completedLessons: [{Lesson: "Analogies"}, {Lesson: "Reading"}],
-        currentPlaylist: [{Lesson:"Fractions"}, {Lesson:"Verbs"}],
+        completedLessons: [{lessonType: "Analogies", lessonName: "Analogies: Life is a game. Play wisely.", id: 1}, {lessonType: "Reading", lessonName: "The life of Frederick Douglas", id: 2}],
+        currentPlaylist: [{lessonType: "Nouns", lessonName: "Me, myself, and I.", id: 1}],
         mother: null,
         motherPhone : null,
         father : null,
@@ -78,11 +80,12 @@ describe('Student Controller', function () {
       {
         firstName: "Sydney",
         lastName:"Green",
+        fullName: "Sydney Green",
         userName: "SydneyGreen",
         classPeriod: 7,
         performance: "Ahead of track",
-        completedLessons: [{Lesson: "Analogies"}, {Lesson: "Reading"}],
-        currentPlaylist: [{Lesson:"Fractions"}, {Lesson:"Verbs"}],
+        completedLessons: [{lessonType: "Analogies", lessonName: "Analogies: Life is a game. Play wisely.", id: 1}, {lessonType: "Reading", lessonName: "The life of Frederick Douglas", id: 2}],
+        currentPlaylist: [{lessonType: "Nouns", lessonName: "Me, myself, and I.", id: 1}],
         mother: null,
         motherPhone : null,
         father : null,
@@ -99,7 +102,9 @@ describe('Student Controller', function () {
         var aStudent = {
           firstName:"Slick" ,
           lastName:"Rick",
+          performance: "On-track",
           classPeriod: 1,
+          currentPlaylist: [{lessonType: "Nouns", lessonName: "Me, myself, and I.", id: 1}],
           mother: "Vivian",
           motherPhone: "555-555-5555",
           father: "Phillip",
@@ -139,7 +144,7 @@ describe('Student Controller', function () {
         done();
       });
     });
-    it ('should have a method that given an input and searh param, updates the student record', function (done) {
+    it ('should have a method that given an input and search param, updates the student record', function (done) {
 
       StudentController.updateStudentRecord('SydneyGreen', 'father','Fred', function (err, student) {
         expect(student.father).to.equal('Fred');

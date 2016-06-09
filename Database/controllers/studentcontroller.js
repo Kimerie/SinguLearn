@@ -1,15 +1,17 @@
 var Student = require('../models/studentModel.js');
 
 // Save a new student record to the database
-exports.saveNewStudent = function(userInput, callback){
+exports.saveNewStudent = function(userInput, callback) {
   var newStudent = new Student;
+
   newStudent.firstName          = userInput.firstName;
   newStudent.lastName           = userInput.lastName;
+  newStudent.fullName           = userInput.firstName + " " + userInput.lastName;
   newStudent.userName           = userInput.firstName + userInput.lastName;
   newStudent.period             = userInput.period;
-  newStudent.performance        = null;
+  newStudent.performance        = userInput.performance
   newStudent.completedLessons   = [];
-  newStudent.currentPlaylist    = [];
+  newStudent.currentPlaylist    = userInput.currentPlaylist;
   newStudent.mother             = userInput.mother;
   newStudent.motherPhone        = userInput.motherPhone;
   newStudent.father             = userInput.father;
@@ -71,13 +73,35 @@ exports.updateStudentRecord = function (userName, param, userInput, callback) {
 
 // Given the name of a student, update playlist info in their record in the database
 
-exports.updateStudentPlaylist = function (userName, playlistItem, callback) {
-  var query = {'userName': userName};
-  Student.findOneAndUpdate(query,{currentPlaylist:playlistItem}, function (err, student) {
+exports.updateStudentPlaylist = function (input, callback) {
+  console.log("Hello from the db side")
+
+  var query = {'fullName': input.fullName};
+
+  Student.findOne(query, function (err, student) {
     if (err) {
       console.log(err);
     }
-    callback(null, student);
+
+    for( var i = 0; i < input.playlistItems.length; i++){
+      console.log(input.playlistItems[i])
+    }
+    // student[param] = userInput;
+    student.save();
+    console.log('****************', student[param])
+    callback(null, student)
   });
+  // var query = {'fullName': params.selected};
+  // console.log("this is the name of person being searched", query)
+  // Student.findOneAndUpdate(query, function (err, student) {
+  //   console.log("in update student playlist method", student)
+  //   console.dir(param)
+  //   console.log(query)
+  //   console.log(callback)
+  //   if (err) {
+  //     console.log(err);
+  //   }
+    // callback(null, student);
+  // });
 
 }

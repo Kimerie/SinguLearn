@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-static-top custom-navbar container-fullwidth" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top custom-navbar container-fullwidth" role="navigation">
   <div class="navbar-header">
       <a class="navbar-brand" rel="home" href="#/dashboard" title="Singulearn">
         Singulearn
@@ -27,54 +27,53 @@
               <a href="#/class">Students</a>
           </li>
           <li>
-              <a href="#/playlists">Playlists</a>
+              <a href="#/playlists">Playlist Builder</a>
           </li>
           <li>
               <a href="#/Chat">Chat</a>
           </li>
       </ul>
-      <div class="sidebar-footer footer-links">
-        <div class="col-xs-4">
-          <a class="nav-link" ng-href="#/Account">Account</a>
-        </div>
-        <div class="col-xs-4">
-          <a class="nav-link" ng-href="#/">Signout</a>
-        </div>
-        <div class="col-xs-4">
-          <a class="nav-link" ng-href="#/help">Help</a>
-        </div>
-      </div>
-
-<!--     <a class="pull-right" ng-href="#">Back to top</a>
- -->
 </div>
-
 <!-- /#sidebar-wrapper -->
+
 <!-- Page Content -->
 <div id="page-content-wrapper">
   <div class="container-fluid">
+    <div class='container-fluid typeahead-demo' ng-controller="TeachWorkCtrl">
+
+    <h4>Select Student</h4>
+    <!-- <pre>Model: {{selected | json}}</pre> -->
+    <input placeholder="Type Student Name" type="text" ng-model="selected" typeahead-editable="false" typeahead-no-results="noResults" uib-typeahead="state for state in names | filter:$viewValue | limitTo:8" class="form-control"></div>
    <div ng-controller="TeachWorkCtrl">
-    <div class="container work">
-        <header><h1>Select Lesson</h1></header>
+      <div class="col-lg-6">
+        <div class="container work">  
+        <header><h1>Select and Drag Lesson</h1></header>
         <section>
-            <div draggable="true" ng-repeat="color in colors track by color.id">{{color.name}}</div>
+            <div class="drag"> 
+              <button type="button" class="btn btn-lg btn-primary courseName" draggable="true" ng-repeat="lesson in lessons track by lesson.id">{{lesson.lessonType}}</button>
+              </div>
         </section>
+      </div>
     </div>
-    <div class="container work">
+    <div class="col-lg-6">
+      <div class="container work dash">
         <header><h1>Drop Lesson Here</h1></header>
         <section droppable="true">
-            <div><span>You dragged in: </span>
-                <div ng-repeat="name in items track by $index">
-                    <span ng-show="$index != 0"></span>
-                    {{name}}
-                </div>
+          <div class="drop">
+         <div>
+          <button ng-repeat="name in lessonNames track by $index" ng-click="handleDelete(name)" type="button" class="btn btn-lg btn-primary courseName">{{name}}</button></div>
             </div>
-        </section>
+            <div><h5>Click lesson in list to remove.</h5></div>
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
-    
-   <!--  <button ng-click='sayHi()'>Say hi!</button>
-    <pre>{{items|json}}</pre> -->
-</div>
+    <br>
+    <div class="container confirm outer-div">
+      <button type="button" class="btn btn-primary btn-lg btn-block confirm inner-div" ng-click="updatePlaylist(selected)">Confirm Selections</button>
+    </div>  
+  </div>
 </div>
 
 <!-- /#page-content-wrapper -->

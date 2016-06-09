@@ -3,6 +3,7 @@ var mongoose = require('mongoose')
 var studentSchema = new mongoose.Schema ({
   firstName: {type: String, required: true},
   lastName:{type: String, required: true},
+  fullName:{type: String, required: true},
   userName: {type: String, unique: true, required: true},
   performance: {type: String},
   completedLessons: {name: String, type:[]},

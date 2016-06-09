@@ -79,14 +79,14 @@ a.navbar-brand{
 
 div.container.navbar-header{
     margin-right: 0px;
-    background-color: #252839;
+    background-color: #3FB0AC;
 
 }
 
 ul.nav.navbar-nav.navbar-right{
     float: right !important;
     padding-right:20px;
-    background-color: #252839;
+    background-color: #173e43;
 }
 span.glyphicon.glyphicon-user{
     color: #fff !important;
@@ -97,9 +97,10 @@ span.glyphicon.glyphicon-user{
     height: 80px;
     width: 300px;
 }
-nav.navbar-inverse.navbar-static-top{
+nav.navbar-inverse.navbar-fixed-top{
   margin-bottom: 0px;
-  background-color: #252839;
+  background-color: #3FB0AC;
+  border-color: #3FB0AC;
 }
 
 /*div.navbar-header>a{
@@ -141,7 +142,7 @@ div#sidebar-wrapper{
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: #b5b5b7;
+    background: #173e43;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -265,7 +266,7 @@ Teacher Playlist Builder
 
 ===========================================================================================================================*/
 .container.work {
-  width: 600px;
+  width: 450px;
   border: 1px solid #f7dca1;
   box-shadow: 0 1px 5px #f7dca1;
   border-radius: 5px;
@@ -300,14 +301,23 @@ Teacher Playlist Builder
   color: #5e4308;
 }
 
+.btn.btn-lg.btn-primary.courseName{
+  margin: 25px;
+}
 
-
-
-
-
-
-
-
+.container.confirm.outer-div{
+  padding: 30px;
+  text-align: center;
+}
+.btn.btn-lg.btn-primary.btn-block.confirm.inner-div{
+  width: 800px;
+  display: inline-block;
+  background-color: #89043D;
+  border-color: #89043D;
+}
+.col-md-4, .col-lg-6{
+  margin-top: 50px;
+}
 /*===========================================================================================================================
 
 User_login

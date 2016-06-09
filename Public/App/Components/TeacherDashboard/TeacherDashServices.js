@@ -15,4 +15,20 @@ angular.module('TeacherDash.services', [])
   return {
     fetchData: fetchData
   };
+
+  updatePlaylist = function(req, res) {
+    return $http({
+        method: 'Post',
+        url: '/api/students/:playlists'
+     })
+    .success(function(data) {
+        console.log('data successfully retrieved', data);
+    }).error(function() {
+        console.log("error retrieving data");
+    });
+  };
+  return {
+    fetchData: fetchData,
+    updatePlaylist : updatePlaylist
+  };
 }]);
