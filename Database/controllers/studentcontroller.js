@@ -1,4 +1,5 @@
 var Student = require('../models/studentModel.js');
+var _       = require('underscore')
 
 // Save a new student record to the database
 exports.saveNewStudent = function(userInput, callback) {
@@ -73,35 +74,22 @@ exports.updateStudentRecord = function (userName, param, userInput, callback) {
 
 // Given the name of a student, update playlist info in their record in the database
 
-exports.updateStudentPlaylist = function (input, callback) {
-  console.log("Hello from the db side")
-
-  var query = {'fullName': input.fullName};
+exports.updateStudentPlaylist = function (fullName, playlistItems, param, callback) {
+  var query = {'fullName': fullName};
 
   Student.findOne(query, function (err, student) {
+  console.log(student)
     if (err) {
       console.log(err);
     }
 
-    for( var i = 0; i < input.playlistItems.length; i++){
-      console.log(input.playlistItems[i])
+    for( var i = 0; i < playlistItems.length; i++){
+      if(!(_.contains(student[param], playlistItems[i], 0))) { 
+        student[param].push(playlistItems[i])
+      }
     }
-    // student[param] = userInput;
     student.save();
     console.log('****************', student[param])
     callback(null, student)
   });
-  // var query = {'fullName': params.selected};
-  // console.log("this is the name of person being searched", query)
-  // Student.findOneAndUpdate(query, function (err, student) {
-  //   console.log("in update student playlist method", student)
-  //   console.dir(param)
-  //   console.log(query)
-  //   console.log(callback)
-  //   if (err) {
-  //     console.log(err);
-  //   }
-    // callback(null, student);
-  // });
-
 }

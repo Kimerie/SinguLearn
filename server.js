@@ -34,42 +34,35 @@ app.set('case sensitive routing', true);
 //   res.sendFile(path.join(__dirname, '../public/index.html'))
 // });
 
-app.get('/api/students', function(req, res){
-  Student.getAllStudents(function(err, students){
+app.get('/api/students', function(req, res) {
+  Student.getAllStudents(function(err, students) {
     console.log(students)
       res.send(students);
   });
-})
+});
 
-app.post('/api/students', function(req, res){
-  console.log("Hello from the server side", req.body)
-  var params = req.body
-  console.log("I must have called 1000 times", params)
+//post req from Teacher workspace to update student playlist
+app.post('/api/students', function(req, res) {
 
-  Student.updateStudentPlaylist(function(err, params){
-    console.log("ayyyyyyyyyyye", req.body)
+  var fullName      = req.body.selected
+  var playlistItems = req.body.playlistItems
+  var param         = "currentPlaylist"
+
+  Student.updateStudentPlaylist(fullName, playlistItems, param, function(err) {
+    res.send('data received')
   });
-  
-  // Student.updateStudentPlaylist(function(err, data){
-  //   data = params
-  // console.log('**********we in the bldg************', data)
-  
-
-  // });
-  console.log('posted')
-  res.send('data received')
   res.end('data!')
-})
+});
 
 var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
                 replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };
 
-mongoose.connect(db.url, options)
-mongoose.connection.once('connected', function(err){
-  console.log('Default connection open to: ' + db.url)
+mongoose.connect(db.uri, options)
+mongoose.connection.once('connected', function(err) {
+  console.log('Default connection open to: ' + db.uri)
 });
 
-mongoose.connection.on('error', function(err){
+mongoose.connection.on('error', function(err) {
   console.log('connection error:' + err)
 });
 

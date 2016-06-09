@@ -12,23 +12,23 @@ angular.module('TeacherDash.services', [])
         console.log("error retrieving data");
     });
   };
-  return {
-    fetchData: fetchData
-  };
+  
 
-  updatePlaylist = function(req, res) {
+  updatePlaylist = function(params) {
     return $http({
         method: 'Post',
-        url: '/api/students/:playlists'
+        url: '/api/students',
+        data: params
      })
-    .success(function(data) {
-        console.log('data successfully retrieved', data);
-    }).error(function() {
-        console.log("error retrieving data");
+    .then(function(res) {
+        console.log('data successfully sent');
+        return res.data
     });
   };
+
   return {
     fetchData: fetchData,
     updatePlaylist : updatePlaylist
+    
   };
 }]);

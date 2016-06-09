@@ -5,7 +5,7 @@ teachWork.controller('TeachWorkCtrl',['$scope', 'Students', function ($scope, St
   
   $scope.studentInfo = [];
   $scope.names = [];
-  $scope.selected = undefined;
+  $scope.selected = " ";
   $scope.lessonNames = [];
 
   $scope.lessons = [
@@ -16,22 +16,29 @@ teachWork.controller('TeachWorkCtrl',['$scope', 'Students', function ($scope, St
 
   ];
 
-  
-  $scope.SearchParams = {firstName: "", lastName: "", playlistItems: []};
+  $scope.$on('$typeahead.select', function(event, value, index, elem){
+        console.log(event); // event properties
+        console.log(value); // value of select
+        console.log(index); // index of selected value in dropdown
+        console.log(elem);  // properties of calling element ($id to get the id)
+});
 
-  // $scope.updatePlaylist = function(selected, playlistItems) {
-  //   var params = {fullName: selected, newPlaylist: playlistItems}
-  //   ('/recipe').success(function(response) {
-  //     console.log(response);
-  //   });
 
-  // };
+
+  $scope.changePlaylist = function(selected, playlistItems) {
+    console.log($scope.lessonNames)
+    var params = {"selected": $scope.selected, "playlistItems": $scope.lessonNames}
+    console.log(params)
+    // Students.updatePlaylist(params).then(function(response) {
+    //   console.log(response);
+    // }).catch(function(error) {
+    //   console.log(error);
+    // });
+  };
 
   $scope.getStudents = function() {
      Students.fetchData()
      .then(function (students) {
-      // console.log(students)
-        // console.log("got eeeemmmmmmm!")
         for (var key in students.data){
           $scope.studentInfo.push(students.data[key])
         }
@@ -39,22 +46,15 @@ teachWork.controller('TeachWorkCtrl',['$scope', 'Students', function ($scope, St
         for(var i = 0; i < $scope.studentInfo.length; i++) {
           $scope.names.push($scope.studentInfo[i]['fullName'])
         }
-        console.log("here's the db info. YEEEEE!", $scope.studentInfo);
-        console.log("Here are the names!", $scope.names);
       })
       .catch(function (error) {
         console.error(error);
       });
 
     }; 
-    $scope.getStudents();
-
-
-
-  $scope.handleInput = function (input) {
-    //this will make a post request to server and server will make request to DB to update the student's record
-
-  }; 
+  
+  $scope.getStudents();
+ 
 
   $scope.handleDragStart = function (e) {
     this.style.opacity = '0.4';
@@ -98,7 +98,7 @@ teachWork.directive('draggable', function () {
       element[0].addEventListener('dragend', scope.handleDragEnd, false);
     }
   }
-})
+});
 
 teachWork.directive('droppable', function () {
   return {
@@ -108,4 +108,4 @@ teachWork.directive('droppable', function () {
       element[0].addEventListener('dragover', scope.handleDragOver, false)
     }
   }
-})
+});
