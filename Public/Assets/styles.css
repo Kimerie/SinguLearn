@@ -301,40 +301,56 @@ Teacher Playlist Builder
   color: #5e4308;
 }
 
-.btn.btn-lg.btn-primary.courseName{
+.btn.btn-lg.btn-primary.courseName {
   margin: 25px;
 }
 
-.container.confirm.outer-div{
+.container.confirm.outer-div {
   padding: 30px;
   text-align: center;
 }
-.btn.btn-lg.btn-primary.btn-block.confirm.inner-div{
+.btn.btn-lg.btn-primary.btn-block.confirm.inner-div {
   width: 800px;
   display: inline-block;
   background-color: #89043D;
   border-color: #89043D;
 }
-.col-md-4, .col-lg-6{
+.col-md-4, .col-lg-6 {
   margin-top: 50px;
+}
+
+.container-fluid.typeahead-demo {
+  margin-top: 50px;
+
 }
 /*===========================================================================================================================
 
 User_login
 
 ===========================================================================================================================*/
-.userlogin{
-  margin-top: 200px;
-  margin-bottom: 0px;
 
+#login{
+ /* http://i.huffpost.com/gen/2424140/images/o-CLASSROOM-facebook.jpg*/
+ 
+  background:url("http://www.greeneconome.com/wp-content/uploads/2015/05/empty-classroom-l5.jpg")no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-bottom: 800px !important;
+}
+.userlogin{
+  margin-top: 800px;
+  padding: 50px;
 }
 
 h1.brand-login{
   font-family: 'Stardos Stencil', cursive;
   font-weight: 700;
   font-size: 200px;
-  color:#f2b632;
+  color:#89043D;
   text-align: center;
+  margin-top: 100px;
 
 }
 
@@ -402,23 +418,13 @@ a.already{
 }
 
 
-#login {
- /* background:url("http://www.dceduphile.org/wp-content/uploads/2015/08/bigstock-group-elementary-school-studen-48575402-2.jpg")
-  center center;*/
-  width: 100%;
-  height: 100%;
-  background-size:cover;
-  overflow: hidden;
-  margin-bottom: 0px;
-}
-
 button.btn.btn-lg.btn-primary.btn-block{
   font-family:'Roboto', sans-serif;
   font-weight: 400;
   position: relative;
   display:block;
-  background-color: #3b3a36;
-  border-color: #3b3a36;
+  background-color: #89043D;
+  border-color: #89043D;
   height: 50px !important;
   margin-top: 10px;
 }
@@ -432,23 +438,6 @@ button.btn.btn-sm.btn-secondary{
   color:#e9ece5;
 
 }
-
-svg {
-  width: 100%;
-  height: 100%;
-}
-
-path.slice{
-  stroke-width:2px;
-}
-
-polyline{
-  opacity: .3;
-  stroke: black;
-  stroke-width: 2px;
-  fill: none;
-}
-
   #draggable {
     width: 200px;
     height: 20px;

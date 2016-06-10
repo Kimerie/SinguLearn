@@ -81,10 +81,15 @@
     </div>
   </div>
     <div class="col-lg-6">
+      <div ng-controller="TeachWorkCtrl">
         <div class="container work dash">  
         <header><h1>Content Library</h1></header>
         <section>
-            <div class="lessons">lessons go here</div>
+            <div class="lessons">
+              <li ng-repeat="lesson in lessons">
+                  {{lesson.lessonName}}
+              </li>
+            </div>
         </section>
       </div>
     </div>

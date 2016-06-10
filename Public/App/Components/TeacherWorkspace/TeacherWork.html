@@ -42,8 +42,9 @@
     <div class='container-fluid typeahead-demo' ng-controller="TeachWorkCtrl">
 
     <h4>Select Student</h4>
-    <pre>Model: {{selected | json}}</pre>
-    <input placeholder="Type Student Name" type="text" data-ng-model="selected" typeahead-editable="false" typeahead-no-results="noResults" uib-typeahead="state for state in names | filter:$viewValue | limitTo:8" class="form-control"></div>
+<!--     <pre>Model: {{selected.name | json}}</pre>
+ -->    <input
+       ng-pattern="word" required ng-trim="false"placeholder="Type Student Name" type="text" data-ng-model="selected.name" typeahead-editable="false" typeahead-no-results="noResults" uib-typeahead="state for state in names | filter:$viewValue | limitTo:8" class="form-control"></div>
    <div ng-controller="TeachWorkCtrl">
       <div class="col-lg-6">
         <div class="container work">  
@@ -71,7 +72,7 @@
     </div>
     <br>
     <div class="container confirm outer-div">
-      <button type="button" class="btn btn-primary btn-lg btn-block confirm inner-div" ng-click="changePlaylist(selected)">Confirm Selections</button>
+      <a href="#/dashboard"><button type="button" class="btn btn-primary btn-lg btn-block confirm inner-div">Confirm Selections</button></a>
     </div>  
   </div>
 </div>
