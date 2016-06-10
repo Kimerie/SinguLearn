@@ -33,20 +33,6 @@
               <a href="#/Chat">Chat</a>
           </li>
       </ul>
-      <!-- <div class="sidebar-footer footer-links">
-        <div class="col-xs-4">
-          <a class="nav-link" ng-href="#/Account">Account</a>
-        </div>
-        <div class="col-xs-4">
-          <a class="nav-link" ng-href="#/">Signout</a>
-        </div>
-        <div class="col-xs-4">
-          <a class="nav-link" ng-href="#/help">Help</a>
-        </div>
-      </div> -->
-
-<!--     <a class="pull-right" ng-href="#">Back to top</a>
- -->
 </div>
 
 <!-- /#sidebar-wrapper -->
@@ -74,7 +60,7 @@
         <header><h1>Your Students</h1></header>
         <section>
             <div class="students"> 
-              <p><div><li ng-repeat="student in studentInfo">{{student.firstName}} {{student.lastName}} {{student.performance}}</li></div></p>
+              <p><div><li class="studentname" ng-repeat="student in studentInfo">{{student.firstName}} {{student.lastName}} {{student.performance}}</li></div></p>
               </div>
         </section>
       </div>
@@ -86,9 +72,9 @@
         <header><h1>Content Library</h1></header>
         <section>
             <div class="lessons">
-              <li ng-repeat="lesson in lessons">
+              <p><div><li class="lessons" ng-repeat="lesson in lessons">
                   {{lesson.lessonName}}
-              </li>
+              </li></div></p>
             </div>
         </section>
       </div>

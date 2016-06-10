@@ -114,6 +114,7 @@ div.collapse.navbar-collapse.navbar-left{
 }
 li.nav-links>a{
     color: #fff !important;
+    font-size: 20px !important;
 }
 
 /* Toggle Styles */
@@ -132,6 +133,10 @@ li.nav-links>a{
 
 div#sidebar-wrapper{
   width: 250px;
+}
+
+li.sidelinks>a{
+  font-size: 20px;
 }
 
 #sidebar-wrapper {
@@ -259,6 +264,78 @@ i.fa{
     border-color: #f2b632;
 
 }
+.studentapp{
+   font-family: 'Roboto', sans-serif;
+   font-size: 20px;
+
+}
+
+.btn.btn-lg.btn-primary.courseName.students {
+  width: 600px; 
+  font-size: 20px;
+  margin: 25px;
+}
+
+div.container.studentdash {
+  width: 800px !important;
+  border: 1px solid #f7dca1;
+  box-shadow: 0 1px 5px #f7dca1;
+  border-radius: 5px;
+  font-family: verdana;
+  margin-left: 100px;
+}
+
+.container.studentdash.outer-div header {
+  background: #fdf6e7;
+  background-image: -webkit-linear-gradient( top, #fdf6e7, #f7dca1 );
+  background-image: -ms-linear-gradient( top, #fdf6e7, #f7dca1 );
+  background-image: -moz-linear-gradient( top, #fdf6e7, #f7dca1);
+  background-image: -o-linear-gradient( top, #fdf6e7, #f7dca1 );
+  box-shadow: 0 1px 2px #eeb02b;
+  padding: 10px;
+  margin-top: 0px !important;
+}
+
+.container.studentdash.outer-div h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 40px;
+  font-weight: normal;
+  text-shadow: 0 1px 2px white;
+  color: #eeb02b;
+  text-align: center;
+}
+
+.container.studentdash.outer-div section {
+  padding: 10px 30px; 
+  font-size: 12px;
+  line-height: 175%;
+  color: #5e4308;
+}
+
+.container.studentdash.outer-div {
+  padding: 30px;
+  text-align: center;
+}
+
+.studentname {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.lessons{
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.btn.btn-lg.btn-primary.courseName.students.inner-div {
+  width: 800px;
+  display: inline-block;
+  background-color: #89043D;
+  border-color: #89043D;
+}
 
 /*===========================================================================================================================
 
@@ -339,6 +416,17 @@ User_login
   background-size: cover;
   padding-bottom: 800px !important;
 }
+
+#studentlogin{
+ /* http://i.huffpost.com/gen/2424140/images/o-CLASSROOM-facebook.jpg*/
+ 
+  background:url("http://pressimages.fondationbeyeler.ch/sites/default/files/fondation_beyeler/press_images/Surrealismus/rm_10_0.jpg")no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-bottom: 800px !important;
+}
 .userlogin{
   margin-top: 800px;
   padding: 50px;
@@ -360,6 +448,17 @@ h2.form-signin-heading{
 
 }
 
+h2.heading-student{
+  color:#fff;
+  margin-bottom: 10px;
+
+}
+
+span.remember-me-student{
+  color: #fff;
+  margin-bottom: 10px;
+
+}
 span.remember-me{
   color: #252839;
   margin-bottom: 10px;
@@ -370,7 +469,7 @@ span.remember-me{
   padding: 15px;
   margin: 0 auto;
 }
-.form-signin .form-signin-heading,
+.form-signin .form-signin-heading, heading-student,
 .form-signin .checkbox {
   margin-bottom: 0px;
 }
@@ -408,6 +507,17 @@ span.remember-me{
 
 }
 
+h2.form-signin-heading-student{
+  font-family:'Roboto', cursive;
+  font-weight: 400;
+  margin-bottom: 10px !important;
+
+}
+
+.remember-me-student{
+  color:#fff;
+  margin-bottom: 10px;
+}
 .remember-me{
   color:#252839;
   margin-bottom: 10px;

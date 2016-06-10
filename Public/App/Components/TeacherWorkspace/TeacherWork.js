@@ -3,10 +3,10 @@ var teachWork = angular.module('TeacherWorkspaceController', [])
 teachWork.controller('TeachWorkCtrl',['$scope', 'Students', function ($scope, Students) {
   console.log('inside Teacher Workspace');
   
-  $scope.studentInfo = [];
-  $scope.names = [];
-  $scope.selected = {};
-  $scope.lessonNames = [];
+  $scope.studentInfo  = [];
+  $scope.names        = [];
+  $scope.$selected    = undefined;
+  $scope.lessonNames  = [];
 
   $scope.lessons = [
     {lessonType:"Analogies", lessonName: "Analogies: Life is a game. Play wisely.", id: 1},
@@ -16,25 +16,18 @@ teachWork.controller('TeachWorkCtrl',['$scope', 'Students', function ($scope, St
 
   ];
 
+ $scope.onSelect = function ($selected, $item, $model, $label) {
+  $scope.$item     = $item;
+  $scope.$model    = $model;
+  $scope.$label    = $label;
+  $scope.$selected = $selected;
+};
 
-
-//   $scope.$on('$typeahead.select', function(event, value, index, elem){
-//         console.log(event); // event properties
-//         console.log(value); // value of select
-//         console.log(index); // index of selected value in dropdown
-//         console.log(elem);  // properties of calling element ($id to get the id)
-// });
-
-
-  $scope.changePlaylist = function() {
-    console.log($scope.selected.name)
-    var params = {"selected": $scope.selected.name, "playlistItems": $scope.lessonNames}
-    console.log(params)
-    // Students.updatePlaylist(params).then(function(response) {
-    //   console.log(response);
-    // }).catch(function(error) {
-    //   console.log(error);
-    // });
+  $scope.changePlaylist = function($selected, name) {
+    $scope.selected = $selected;
+    console.log($scope.lessonNames)
+    console.log($scope.selected)
+  
   };
 
   $scope.getStudents = function() {

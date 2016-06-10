@@ -42,9 +42,9 @@
     <div class='container-fluid typeahead-demo' ng-controller="TeachWorkCtrl">
 
     <h4>Select Student</h4>
-<!--     <pre>Model: {{selected.name | json}}</pre>
+<!--     <pre>Model: {{$selected | json}}</pre>
  -->    <input
-       ng-pattern="word" required ng-trim="false"placeholder="Type Student Name" type="text" data-ng-model="selected.name" typeahead-editable="false" typeahead-no-results="noResults" uib-typeahead="state for state in names | filter:$viewValue | limitTo:8" class="form-control"></div>
+       placeholder="Type Student Name" type="text" ng-model="$selected" typeahead-editable="false" typeahead-no-results="noResults" uib-typeahead="state for state in names | filter:$viewValue | limitTo:8" typeahead-on-select="onSelect($selected, $item, $model, $label)" class="form-control"></input>
    <div ng-controller="TeachWorkCtrl">
       <div class="col-lg-6">
         <div class="container work">  
@@ -62,7 +62,7 @@
         <section droppable="true">
           <div class="drop">
          <div>
-          <button ng-repeat="name in lessonNames track by $index" ng-click="handleDelete(name)" type="button" class="btn btn-lg btn-primary courseName">{{name}}</button></div>
+          <button ng-repeat="name in lessonNames track by $index" ng-click="handleDelete(name)" ng-model= "name" type="button" class="btn btn-lg btn-primary courseName">{{name}}</button></div>
             </div>
             <div><h5>Click lesson in list to remove.</h5></div>
             </div>
@@ -72,7 +72,7 @@
     </div>
     <br>
     <div class="container confirm outer-div">
-      <a href="#/dashboard"><button type="button" class="btn btn-primary btn-lg btn-block confirm inner-div">Confirm Selections</button></a>
+      <a href="#/dashboard"><button ng-click= "changePlaylist($selected,name)"type="button" class="btn btn-primary btn-lg btn-block confirm inner-div">Confirm Selections</button></a>
     </div>  
   </div>
 </div>

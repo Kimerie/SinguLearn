@@ -1,0 +1,33 @@
+<nav class="navbar navbar-inverse navbar-fixed-top custom-navbar container-fullwidth" role="navigation">
+  <div class="navbar-header">
+    </div>
+    <div><ul class="nav navbar-nav navbar-right container-fullwidth">
+        <li class=nav-links><a href="#"><span class="username"></span></a></li>
+        <li class=nav-links><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+       <!--  <li class=nav-links><a href="#/account">Account</a></li> -->
+        <li class=nav-links><a href="#/help">Help </a></li>
+        <li class=nav-links><a href="#/Dashboard">Login</a></li>
+      </ul>
+      </div>
+ <!--/.container -->
+</nav>
+<div id="studentlogin" class="userLogin">
+<!-- <div ng-contoller="UserSelectController"> -->
+<div class="container">
+  <h1 class="brand-login">Singulearn</h1>
+  <h3 class="wrong"ng-show="show">Wrong Username and/or Password. Try again!</h3>
+  <form name="signupForm" class="form-signin">
+    <h2 class="heading-student">Sign In</h2>
+    <label for="inputUsername" class="sr-only">Username</label>
+    <input type="username" id="username"  class="form-control" placeholder="Username" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword"  class="form-control" placeholder="Password" required>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="remember-me"><span class="remember-me-student">Remember me</span>
+      </label>
+    </div>
+    <a href="#/home"><button class="btn btn-lg btn-primary btn-block login"  type="submit">Login</button></a>
+  </form>
+    </div>
+</div>
