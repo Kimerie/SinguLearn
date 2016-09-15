@@ -9,13 +9,13 @@ var Student         = require('./Database/controllers/studentcontroller.js')
 var StudentModel    = require('./Database/models/studentModel.js')
 var router          = express.Router();
 var path            = require('path')
-// var compression     = require('compression')
+var compression     = require('compression')
 
 var PORT = process.env.PORT || 8000;
 process.env.PWD = process.cwd();
 
 app.use(bodyParser.json());
-// app.use(compression())
+app.use(compression())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(path.join(process.env.PWD, 'public')));
@@ -29,10 +29,9 @@ app.set('case sensitive routing', true);
 
 
 
-// app.get('/', function(req, res){
-//   console.log('success')
-//   res.sendFile(path.join(__dirname, '../public/index.html'))
-// });
+app.get('/', function(req, res){
+  res.send("success!")
+});
 
 app.get('/api/students', function(req, res) {
   Student.getAllStudents(function(err, students) {
