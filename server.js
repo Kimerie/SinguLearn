@@ -19,8 +19,8 @@ app.use(compression())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(path.join(process.env.PWD, 'public')));
-// app.use(express.static(path.join(process.env.PWD, 'assets')));
-// app.use(express.static(path.join(process.env.PWD, 'components')));
+app.use(express.static(path.join(process.env.PWD, 'assets')));
+app.use(express.static(path.join(process.env.PWD, 'components')));
 app.set('case sensitive routing', true);
 // app.use(express.static('assets'));
 // app.use(express.static('Components'));
@@ -31,7 +31,7 @@ app.set('case sensitive routing', true);
 
 app.get('/', function(req, res){
   console.log('success')
-  res.send(File(path.join(__dirname, '../public')))
+  res.send(File(path.join(__dirname, '../public/index.html')))
 });
 
 app.get('/api/students', function(req, res) {
