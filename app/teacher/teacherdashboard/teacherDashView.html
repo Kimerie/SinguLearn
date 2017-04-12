@@ -1,0 +1,77 @@
+<nav class="navbar navbar-inverse navbar-fixed-top custom-navbar container-fullwidth" role="navigation">
+  <div class="navbar-header">
+      <a class="navbar-brand" rel="home" href="#/dashboard" title="Singulearn">
+        Singulearn
+      </a>
+    </div>
+    <div><ul class="nav navbar-nav navbar-right container-fullwidth">
+        <!-- <li class=nav-links><a href="#"><span class="username">Welcome, Kimerie !</span></a></li> -->
+        <li class=nav-links><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+        <li class=nav-links><a href="#/account">Account</a></li>
+        <li class=nav-links><a href="#/help">Help </a></li>
+        <li class=nav-links><a href="#/">Sign Out</a></li>
+      </ul>
+      </div>
+ <!--/.container -->
+</nav>
+<div id="wrapper">
+ <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+              <a href="#/dashboard">
+                Dashboard
+              </a>
+          </li>
+          <li>
+              <a href="#/class">Students</a>
+          </li>
+          <li>
+              <a href="#/playlists">Playlist Builder</a>
+          </li>
+          <li>
+              <a href="#/Chat">Chat</a>
+          </li>
+      </ul>
+</div>
+
+<!-- /#sidebar-wrapper -->
+<!-- Page Content -->
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <p></p>
+      <div class="row">
+        <div class="col-md-4">
+          <a href="#/class"><button type="button" class="btn btn-lg btn-primary"><i class="fa fa-users"></i></button></a>
+        </div>
+        <div class="col-md-4">
+          <a href="#playlists"><button type="button" class="btn btn-lg btn-primary"><i class="fa fa-book"></i></button></a>
+        </div>
+        <div class="col-md-4">
+          <a href="#/chat"><button type="button" class="btn btn-lg btn-primary"><i class="fa fa-comments"></i></button></a>
+        </div>
+      </div>
+    </div>
+    <br>
+<br>
+<div ng-controller= "ClassCtrl">
+<div class="col-lg-6">
+        <div class="container work dash">
+
+  </div>
+    <div class="col-lg-6">
+      <div ng-controller="TeachWorkCtrl">
+        <div class="container work dash">
+        <header><h1>Content Library</h1></header>
+        <section>
+            <div class="lessons">
+              <p><div><li class="lessons" ng-repeat="lesson in lessons">
+                  {{lesson.lessonName}}
+              </li></div></p>
+            </div>
+        </section>
+      </div>
+    </div>
+
+</div>
+<!-- /#page-content-wrapper -->

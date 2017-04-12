@@ -1,6 +1,13 @@
 node_modules/
 bower_components/
 *.log
-
+typings
+app/**/*.js
+app/**/*.map
+node_modules
+jspm_packages
+bower_components
+.idea/
+.DS_Store
 build/
 dist/

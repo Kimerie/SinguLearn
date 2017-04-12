@@ -1,11 +1,11 @@
 {
   "name": "singulearn",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "description": "Individualized tools to enable student success",
   "scripts": {
-    "start": "nodemon server.js",
-    "test": "mocha Database/Tests/StudentTest.js Database/Tests/teacherTest.js Database/Tests/lessonTest.js",
-    "build-assets": "npm install"
+    "start": "webpack-dev-server --inline --progress --watch --port 8080",
+    "build": "webpack --config webpack.config.prod.js",
+    "test": "mocha Database/Tests/StudentTest.js Database/Tests/teacherTest.js Database/Tests/lessonTest.js"
   },
   "repository": {
     "type": "git",
@@ -16,38 +16,55 @@
   "bugs": {
     "url": "https://github.com/Kimerie/SinguLearn/issues"
   },
-  "engines": {
-    "node": "5.10.0",
-    "npm": "3.8.3"
-  },
   "homepage": "https://github.com/Kimerie/SinguLearn#readme",
   "dependencies": {
-    "angular": "^1.5.5",
-    "angular-animate": "^1.5.6",
-    "angular-route": "^1.5.5",
-    "angular-touch": "^1.5.6",
-    "angular-ui-bootstrap": "^1.3.3",
+    "@angular/common": "~4.0.0",
+    "@angular/compiler": "~4.0.0",
+    "@angular/core": "~4.0.0",
+    "@angular/forms": "~4.0.0",
+    "@angular/http": "~4.0.0",
+    "@angular/platform-browser": "~4.0.0",
+    "@angular/platform-browser-dynamic": "~4.0.0",
+    "@angular/router": "~4.0.0",
+    "@angular/upgrade": "^4.0.1",
+    "@types/js-base64": "^2.1.5",
+    "@types/lodash": "^4.14.41",
+    "angular-in-memory-web-api": "~0.3.0",
     "body-parser": "^1.15.1",
     "bootstrap": "^3.3.6",
     "chai": "^3.5.0",
     "chai-datetime": "^1.4.1",
     "compression": "^1.6.2",
-    "d3": "^3.5.17",
     "express": "^4.13.4",
     "express-handlebars": "^3.0.0",
-    "jasmine": "^2.4.1",
+    "js-base64": "^2.1.9",
+    "lodash": "^4.17.2",
     "method-override": "^2.3.5",
     "mocha": "^2.4.5",
     "mongodb": "^2.1.18",
     "mongoose": "^4.4.16",
-    "nodemon": "^1.9.2",
-    "passport": "^0.3.2",
-    "passport-facebook": "^2.1.0",
-    "passport-google-oauth": "^1.0.0",
-    "passport-local": "^1.0.0",
-    "passport-oauth": "^1.0.0",
-    "passport-twitter": "^1.0.4",
+    "ng2-facebook-sdk": "^0.2.0",
+    "npm": "^3.10.8",
+    "rxjs": "5.0.1",
+    "systemjs": "0.19.40",
+    "zone.js": "^0.8.4"
+  },
+  "devDependencies": {
+    "@types/core-js": "^0.9.34",
+    "@types/node": "^6.0.45",
+    "@types/requirejs": "^2.1.28",
+    "angular2-template-loader": "^0.5.0",
+    "awesome-typescript-loader": "^3.1.2",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "core-js": "^2.4.0",
     "path": "^0.12.7",
-    "underscore": "^1.8.3"
+    "raw-loader": "^0.5.1",
+    "source-map-loader": "^0.1.5",
+    "typescript": "^2.2.2",
+    "typings": "^2.1.1",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
   }
 }
